@@ -7,9 +7,8 @@ const isNum = (num) => {
 
 //создание игры
 const сreateGame = () => {
-  let randomNum = parseInt(Math.random() * 100);
+  let randomNum = parseInt(Math.floor((Math.random() * 101)));
   console.log(randomNum);
-  let userNum = prompt('Угадай число от 1 до 100');
   
   //игровой бот
   const gameBot = () => {
@@ -17,28 +16,34 @@ const сreateGame = () => {
     //проверка, хочешь играть или нет
     let checkGameWish = (flag) => {
       if (flag) {
-        getNumber()
+        gameBot()
       } else {
         alert('Спасибо, что поиграли со мной')
       }
     };
+    
+    let wish = prompt('Угадай число от 1 до 100');
+    let userNum = prompt('Угадай число от 1 до 100');
 
-    if (isNum(userNum > randomNum)) {
-      alert('Загаданное число меньше');
-      //+prompt('Ввести новый вариант');
-    } else if (isNum(userNum < randomNum)) {
-      alert('Загаданное число больше');
-      //+prompt('Ввести новый вариант');
-    } else if (typeof userNum === 'string') {
-      alert('Введи число!');
-      //+prompt('Ввести новый вариант');
-    } else if (userNum === null) {
+    if (userNum === null) {
       alert('Игра окончена');
-    } else if (isNum(userNum === randomNum)) {
-      alert('Поздравляю, Вы угадали!!!')
+    }
+    else if (!isNum(userNum) || (parseFloat(userNum) > 100)) {
+      wish = confirm('Введи число от 0 до 100!')
+      checkGameWish(wish);
+    }
+    else if (userNum === randomNum) {
+      alert('Поздравляю, Вы угадали!!!');
+    }
+    else if (userNum > randomNum) {
+      wish = confirm('Загаданное число меньше. Попробуй еще')
+      checkGameWish(wish);
+    }
+    else if (userNum < randomNum) {
+      wish = confirm('Загаданное число больше. Попробуй еще')
+      checkGameWish(wish);
     }
   };
-  
   return gameBot();
 };
 
