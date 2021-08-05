@@ -22,28 +22,28 @@ const сreateGame = () => {
       }
     };
     
-    let wish = prompt('Угадай число от 1 до 100');
     let userNum = prompt('Угадай число от 1 до 100');
 
     if (userNum === null) {
       alert('Игра окончена');
     }
     else if (!isNum(userNum) || (parseFloat(userNum) > 100)) {
-      wish = confirm('Введи число от 0 до 100!')
-      checkGameWish(wish);
+      userNum = confirm('Введи число от 0 до 100!')
+      checkGameWish(userNum);
     }
     else if (userNum === randomNum) {
       alert('Поздравляю, Вы угадали!!!');
     }
     else if (userNum > randomNum) {
-      wish = confirm('Загаданное число меньше. Попробуй еще')
-      checkGameWish(wish);
+      userNum = confirm('Загаданное число меньше. Попробуй еще')
+      checkGameWish(userNum);
     }
     else if (userNum < randomNum) {
-      wish = confirm('Загаданное число больше. Попробуй еще')
-      checkGameWish(wish);
+      userNum = confirm('Загаданное число больше. Попробуй еще')
+      checkGameWish(userNum);
     }
   };
+  
   return gameBot();
 };
 
