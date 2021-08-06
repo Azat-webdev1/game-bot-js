@@ -22,9 +22,9 @@ const сreateGame = () => {
       }
     };
     
-    let userNum = prompt('Угадай число от 1 до 100');
+    let userNum = +prompt('Угадай число от 1 до 100');
 
-    if (userNum === null) {
+    if (isNum(userNum) === null) {
       alert('Игра окончена');
     }
     else if (!isNum(userNum) || (parseFloat(userNum) > 100)) {
