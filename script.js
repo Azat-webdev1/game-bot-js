@@ -3,8 +3,7 @@
 //создание игры
 const сreateGame = () => {
   let lives = 10;
-  //let count = 0;
-
+  
   let randomNum = parseInt(Math.floor((Math.random() * 101)));
   console.log('Загадоное число: ', randomNum);
   
